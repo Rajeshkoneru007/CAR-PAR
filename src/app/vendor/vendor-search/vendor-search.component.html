@@ -1,0 +1,46 @@
+<p-card class="ui-md-6 ui-sm-4 vendor-search-card" [style]="{width: '48%', position: 'relative', top: '2%', left: '24%' }">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <h2 class="vendor-search-title">Vendor Search</h2>
+        </div>
+        <div class="ui-g-12 form-test">
+            <form [formGroup]="vendorSearchForm" novalidate>
+                <div class="ui-g">
+                    <div class="ui-md-6"><label>Search By Region</label></div>
+                    <div class="ui-md-4">
+                        <p-dropdown [options]="regions" optionLabel="id" placeholder="Select Region" (onChange)="isEditForm('region');" id="region" [(ngModel)]="selectedValue" formControlName="region" ></p-dropdown>
+                    </div>
+                </div>
+                <div class="ui-g">
+                        <div class="ui-md-6"><label>Search By State</label></div>
+                        <div class="ui-md-4">
+                                <p-dropdown [options]="states.results" optionLabel="result" placeholder="Select State" (onChange)="isEditForm('state');" id="state" [(ngModel)]="selectedValue" formControlName="state"></p-dropdown></div>
+                    </div>
+                    <div class="ui-g">
+                            <div class="ui-md-6"><label>Search By Vendor Name</label></div>
+                            <div class="ui-md-4">
+                                 <p-autoComplete [suggestions]="vendorNames" (completeMethod)="getVendorNameService($event)" placeholder="Select Vendor Name" id="vendorName" field="result" formControlName="vendorName" [(ngModel)]="selectedValue" (onSelect)="isEditForm('vendorName');" emptyMessage="No Record Found"></p-autoComplete>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                                <div class="ui-md-6"><label>Search By Vendor Id</label></div>
+                                <div class="ui-md-4">
+                                    <p-dropdown [options]="vendorid" optionLabel="id" placeholder="Select Vendor Id" (onChange)="isEditForm('vendorId');" id="vendorId"  [(ngModel)]="selectedValue" formControlName="vendorId"></p-dropdown>
+                            </div>
+                            </div>
+            </form>
+        </div>
+        <div class="ui-g-12 ui-lg-12 ui-md-8 ui-sm-6">
+            <p-footer>
+                <h4 style="color: green; font-style: italic;" class="vendor-search-info-text"> Info: Please enter a search criteria first. </h4>
+                <button pButton type="button" label="Search" class="vendor-search-button" (click)=submit(); [disabled]="isButton.edit"></button>
+                <button pButton type="button" label="Reset" class="vendor-reset-button" (click)=reset(); ></button>
+            </p-footer>
+        </div>
+    </div>
+</p-card>
+<div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad margin-top--10">
+            <app-vendor-list [vendorResult]="vendorResult"></app-vendor-list>
+      </div>
+</div>

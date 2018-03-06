@@ -1,0 +1,41 @@
+.input-field {
+    width: 14%;
+} 
+
+.vendor-search-button { 
+    position: relative;
+    left: 44%;    
+}
+
+.vendor-search-button { 
+    position: relative;
+    left: 40%;    
+}
+
+.vendor-reset-button { 
+    position: relative;
+    left: 42%;    
+}
+
+.vendor-search-title { 
+    position: relative;
+    left: 36%;
+}
+
+.vendor-search-info-text{
+    position: relative;
+    left: 20%;
+    bottom: 10%;
+}
+
+
+
+.form-test {
+    width: 100%;
+    padding-left: 14%;
+}
+
+.vendor-search-card {
+    position: relative;
+    margin-top: 4%;
+}

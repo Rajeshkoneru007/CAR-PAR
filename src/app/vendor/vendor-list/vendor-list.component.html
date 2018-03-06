@@ -1,0 +1,14 @@
+<p-dataTable [value]="vendorResult" [style]="{width: '90%', position: 'relative', top: '1%', left: '4%'}">
+        <p-column field="agentId" header="Vendor Id" [sortable]="true">
+                <ng-template let-col let-vendorResult="rowData" pTemplate="body">
+                        <a routerLink='vendor-summary' (click)="navigateToVendorSummary()">{{vendorResult[col.field]}}</a>
+                </ng-template>
+        </p-column>
+        <p-column field="agentName" header="Vendor Name" [sortable]="true"></p-column>
+        <p-column field="address1" header="address" [sortable]="true"></p-column>
+        <p-column field="city" header="city" [sortable]="true"></p-column>
+        <p-column field="state" header="state" [sortable]="true"></p-column>
+        <p-column field="zipCode" header="zip" [sortable]="true"></p-column>
+        <p-column field="phone" header="phone" [sortable]="true"></p-column>
+        <p-column field="contact" header="contact" [sortable]="true"></p-column>
+</p-dataTable>

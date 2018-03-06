@@ -1,0 +1,11 @@
+.ui-datatable .ui-datatable-thead>tr>th, .ui-datatable .ui-datatable-tfoot>tr>td {
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    height: 40px;
+    background-color: #2399e5;
+}
+
+.ui-widget-content a {
+    color: #0645ad;
+}

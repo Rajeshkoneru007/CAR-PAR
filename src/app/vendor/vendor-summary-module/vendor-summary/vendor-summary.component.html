@@ -1,0 +1,48 @@
+<div class="ui-g">
+  <div class="ui-g-4 ui-lg-4 ui-md-12 ui-sm-12">
+    <p-fieldset legend="Basic Info">
+      <div class="ui-g ui-grid-pad">
+        <div class="ui-g-4 ui-lg-6 ui-md-2 ui-sm-12"><b>Location:</b> </div>
+        <div class="ui-g-8 ui-lg-6 ui-md-10 ui-sm-12"><span>{{vendorSummary.basicInfo.location}}</span></div>
+    </div>
+    <div class="ui-g ui-grid-pad">
+      <div class="ui-g-4 ui-lg-6 ui-md-2 ui-sm-12"><b>Vendor Name:</b> </div>
+      <div class="ui-g-8 ui-lg-6 ui-md-10 ui-sm-12">{{vendorSummary.basicInfo.vendorName}}</div>
+  </div>
+  <div class="ui-g ui-grid-pad">
+    <div class="ui-g-4 ui-lg-6 ui-md-2 ui-sm-12"><b>Vendor Id:</b> </div>
+    <div class="ui-g-8 ui-lg-6 ui-md-10 ui-sm-12" >{{vendorSummary.basicInfo.vendorId}}</div>
+</div>
+<div class="ui-g ui-grid-pad">
+  <div class="ui-g-4 ui-lg-6 ui-md-2 ui-sm-12"><b>Vendor DBA:</b> </div>
+  <div class="ui-g-8 ui-lg-6 ui-md-10 ui-sm-12" >{{vendorSummary.basicInfo.vendorDBA}}</div>
+</div>
+<div class="ui-g ui-grid-pad">
+  <div class="ui-g-4 ui-lg-6 ui-md-2 ui-sm-12"><b>Vendor Status:</b> </div>
+  <div class="ui-g-8 ui-lg-6 ui-md-10 ui-sm-12" >{{vendorSummary.basicInfo.VendorStatus}}</div>
+</div>
+  </p-fieldset>
+  </div>
+  <div class="ui-g-8 ui-lg-8 ui-md-12 ui-sm-12">
+    <p-fieldset legend="Due Dilligence Expiration">
+      <p-table [value]="vendorSummary.dueDilligenceExpiration">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Type</th>
+                <th>Document Name</th>
+                <th>Expiration Dat</th>
+                <th>Missing Document</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dueDilligenceExpiration>
+            <tr>
+                <td>{{dueDilligenceExpiration.type}}</td>
+                <td><a href="javascript:">{{dueDilligenceExpiration.docmentName}}</a></td>
+                <td>{{dueDilligenceExpiration.expirationDate}}</td>
+                <td>{{dueDilligenceExpiration.missingDocument}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+  </p-fieldset>
+  </div>
+</div>
