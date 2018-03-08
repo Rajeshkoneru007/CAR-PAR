@@ -30,11 +30,17 @@ export class VendorSearchComponent implements OnInit {
   }
   
   states:State[];
-  selectedValue:string; 
   vendorResult:VendorList[];
   regions:Region[];
   vendorid:VendorId[];
   vendorNames:VendorName[]
+
+  selectedRegion:number;
+  selectedState:string; 
+  selectedVendorName: string;
+  selectedVendorId: number;
+
+
 
   vendorSearchForm:FormGroup;
 
@@ -50,7 +56,6 @@ export class VendorSearchComponent implements OnInit {
   getStates(){
     this.route.data.subscribe((data:{states:State[]}) => {
       this.states = data.states;
-      console.log(this.states);
     });
   }
 
@@ -63,13 +68,12 @@ export class VendorSearchComponent implements OnInit {
   getVendorId(){
     this.VendoridService.getVendorId().subscribe((data:VendorId[]) =>{
       this.vendorid = data["ids"];
-      console.log(data);
     });
   }
 
   getVendorNameService(event){
     let query = event.query;
-    this.vendorNameService.getVendorName().subscribe((vendorNames:VendorName[]) =>{
+    this.vendorNameService.getVendorName(query).subscribe((vendorNames:VendorName[]) =>{
       this.vendorNames = vendorNames["results"]
       this.vendorNames = this.filterVendorName(query,this.vendorNames)
     })
@@ -98,18 +102,23 @@ export class VendorSearchComponent implements OnInit {
   
 
   submit(){
-    this.vendorListService.getVendorList(this.selectedValue).subscribe((data:VendorList[]) =>{
+    this.vendorListService.getVendorList(this.selectedRegion, this.selectedState, this.selectedVendorName, this.selectedVendorId).subscribe((data:VendorList[]) =>{
       this.vendorResult = data;
-      console.log(data);
       this.isFormNotEdit()
-      this.vendorSearchForm.reset()
+      this.vendorSearchForm.get('region').setValue(undefined)
+      this.vendorSearchForm.get('state').setValue(undefined)
+      this.vendorSearchForm.get('vendorName').setValue(undefined)
+      this.vendorSearchForm.get('vendorId').setValue(undefined)
     })
   }
 
   reset(){
     this.isFormNotEdit()
-    this.vendorSearchForm.reset();
-  }
+    this.vendorSearchForm.get('region').setValue(undefined)
+    this.vendorSearchForm.get('state').setValue(undefined)
+    this.vendorSearchForm.get('vendorName').setValue(undefined)
+    this.vendorSearchForm.get('vendorId').setValue(undefined)
+}
 
   isFormNotEdit(){
     this.vendorSearchForm.enable();

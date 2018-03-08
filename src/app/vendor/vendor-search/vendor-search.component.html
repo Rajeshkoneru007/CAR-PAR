@@ -1,31 +1,38 @@
 <p-card class="ui-md-6 ui-sm-4 vendor-search-card" [style]="{width: '48%', position: 'relative', top: '2%', left: '24%' }">
     <div class="ui-g">
         <div class="ui-g-12">
-            <h2 class="vendor-search-title">Vendor Search</h2>
+            <h2 class="vendor-search-title">Vendor Search</h2> <hr/>
         </div>
         <div class="ui-g-12 form-test">
             <form [formGroup]="vendorSearchForm" novalidate>
                 <div class="ui-g">
                     <div class="ui-md-6"><label>Search By Region</label></div>
                     <div class="ui-md-4">
-                        <p-dropdown [options]="regions" optionLabel="id" placeholder="Select Region" (onChange)="isEditForm('region');" id="region" [(ngModel)]="selectedValue" formControlName="region" ></p-dropdown>
+                        <p-dropdown [options]="regions" optionLabel="id" placeholder="Select Region" (onChange)="isEditForm('region');" id="region" [(ngModel)]="selectedRegion" formControlName="region" ></p-dropdown>
                     </div>
                 </div>
                 <div class="ui-g">
                         <div class="ui-md-6"><label>Search By State</label></div>
                         <div class="ui-md-4">
-                                <p-dropdown [options]="states.results" optionLabel="result" placeholder="Select State" (onChange)="isEditForm('state');" id="state" [(ngModel)]="selectedValue" formControlName="state"></p-dropdown></div>
+                                <p-dropdown [options]="states.results" optionLabel="result" placeholder="Select State" (onChange)="isEditForm('state');" id="state" [(ngModel)]="selectedState" formControlName="state"></p-dropdown></div>
                     </div>
                     <div class="ui-g">
                             <div class="ui-md-6"><label>Search By Vendor Name</label></div>
                             <div class="ui-md-4">
-                                 <p-autoComplete [suggestions]="vendorNames" (completeMethod)="getVendorNameService($event)" placeholder="Select Vendor Name" id="vendorName" field="result" formControlName="vendorName" [(ngModel)]="selectedValue" (onSelect)="isEditForm('vendorName');" emptyMessage="No Record Found"></p-autoComplete>
+                                 <p-autoComplete [suggestions]="vendorNames" (completeMethod)="getVendorNameService($event)" placeholder="Select Vendor Name" id="vendorName" field="result" formControlName="vendorName" [(ngModel)]="selectedVendorName" (onSelect)="isEditForm('vendorName');" emptyMessage="No Record Found"></p-autoComplete>
                             </div>
                         </div>
                         <div class="ui-g">
                                 <div class="ui-md-6"><label>Search By Vendor Id</label></div>
                                 <div class="ui-md-4">
-                                    <p-dropdown [options]="vendorid" optionLabel="id" placeholder="Select Vendor Id" (onChange)="isEditForm('vendorId');" id="vendorId"  [(ngModel)]="selectedValue" formControlName="vendorId"></p-dropdown>
+                                    <p-dropdown 
+                                    [options]="vendorid" 
+                                    optionLabel="id"
+                                     placeholder="Select Vendor Id"
+                                      (onChange)="isEditForm('vendorId');" 
+                                      id="vendorId"  
+                                      [(ngModel)]="selectedVendorId"
+                                       formControlName="vendorId"></p-dropdown>
                             </div>
                             </div>
             </form>

@@ -1,4 +1,4 @@
-<p-dataTable [value]="vendorResult" [style]="{width: '90%', position: 'relative', top: '1%', left: '4%'}">
+<p-dataTable [value]="vendorResult" [style]="{ position: 'relative', top: '1%' }">
         <p-column field="agentId" header="Vendor Id" [sortable]="true">
                 <ng-template let-col let-vendorResult="rowData" pTemplate="body">
                         <a routerLink='vendor-summary' (click)="navigateToVendorSummary()">{{vendorResult[col.field]}}</a>

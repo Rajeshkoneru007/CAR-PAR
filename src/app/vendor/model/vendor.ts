@@ -11,7 +11,7 @@ export class Region{
 }
 
 export class VendorId{
-    name?:string
+    name?:number
 }
 
 export class VendorName{
